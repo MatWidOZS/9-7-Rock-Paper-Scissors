@@ -20,7 +20,6 @@ pickScissors.addEventListener('click', function() {
 
 
 //Initial values
-
 var gameState = 'notStarted',	//started //ended
 	player = {
 		name: '',
@@ -31,7 +30,6 @@ var gameState = 'notStarted',	//started //ended
 	};
 
 //Displaying game elements
-
 var newGameElem = document.getElementById('js-newGameElement'),
 	pickElem = document.getElementById('js-playerPickElement'),
 	resultsElem = document.getElementById('js-resultsTableElement');
@@ -56,9 +54,8 @@ function setGameElements() {
 setGameElements();
 
 //Starting game
-
 var playerPointsElem = document.getElementById('js-playerPoints'),
-	playerNameElem = document.getElementById('js-playerName');
+	playerNameElem = document.getElementById('js-playerName'),
 	computerPointsElem = document.getElementById('js-computerPoints');
 
 
@@ -68,7 +65,6 @@ function newGame () {
 		player.score = computer.score = 0;
 		gameState = 'started';
 		setGameElements();
-
 		playerNameElem.innerHTML = player.name;
 		setGamePoints();
 	}
@@ -88,11 +84,9 @@ var playerPickElem = document.getElementById('js-playerPick'),
 //Player choice
 function playerPick(playerPick) {
 	var computerPick = getComputerPick();
-
 	playerPickElem.innerHTML = playerPick;
 	computerPickElem.innerHTML = computerPick;
-
-	checkRoundWinner(playerPick, computerPick)
+	checkRoundWinner(playerPick, computerPick);
 }
 
 //Points awarding
@@ -103,6 +97,8 @@ function checkRoundWinner(playerPick, computerPick) {
 
 	if (playerPick == computerPick) {
 		winnerIs = 'noone'; //tie
+		playerResultElem.innerHTML = "Tie!";
+		computerResultElem.innerHTML = "Tie!";
 	} else if (
 		(computerPick == 'rock' && playerPick == 'scissors') ||
 		(computerPick == 'scissors' && playerPick == 'paper') ||
@@ -118,6 +114,8 @@ function checkRoundWinner(playerPick, computerPick) {
 		computerResultElem.innerHTML = "Win!";
 		computer.score++;
 	}
+	setGamePoints();
+	finishedGame();
 }
 
 //Score update
@@ -126,3 +124,14 @@ function setGamePoints() {
 	computerPointsElem.innerHTML = computer.score;
 }
 
+//Finish
+function finishedGame() {
+	if (player.score ==10) {
+		gameState = 'ended';
+		alert(player.name + 'won the game!');
+	} else if (computer.score == 10) {
+		gameState = 'ended';
+		alert('Computer won the game!');
+	}
+	setGameElements();
+}
