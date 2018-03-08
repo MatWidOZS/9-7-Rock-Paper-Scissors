@@ -115,7 +115,7 @@ function checkRoundWinner(playerPick, computerPick) {
 		computer.score++;
 	}
 	setGamePoints();
-	finishedGame();
+	checkGameWinner();
 }
 
 //Score update
@@ -125,11 +125,11 @@ function setGamePoints() {
 }
 
 //Finish
-function finishedGame() {
-	if (player.score == 10) {
+function checkGameWinner() {
+	if (player.score === 10) {
 		gameState = 'ended';
 		alert(player.name + 'won the game!');
-	} else if (computer.score == 10) {
+	} else if (computer.score === 10) {
 		gameState = 'ended';
 		alert('Computer won the game!');
 	}
