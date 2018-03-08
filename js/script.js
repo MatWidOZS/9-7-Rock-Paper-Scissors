@@ -126,7 +126,7 @@ function setGamePoints() {
 
 //Finish
 function finishedGame() {
-	if (player.score ==10) {
+	if (player.score == 10) {
 		gameState = 'ended';
 		alert(player.name + 'won the game!');
 	} else if (computer.score == 10) {
