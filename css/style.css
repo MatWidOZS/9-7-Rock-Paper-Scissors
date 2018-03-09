@@ -23,12 +23,21 @@ body {
   background-position: 100% 0;
   background-size: 300%;
   color: #000;
-  transition: 0.4s; }
+  transition: 0.4s;
+  animation: pulse 1s infinite; }
   #js-newGameButton:hover {
     background-position: 0 100%;
     color: white; }
 
 .points {
   font-size: 18px; }
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1); }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05); }
+  to {
+    transform: scale3d(1, 1, 1); } }
 
 /*# sourceMappingURL=style.css.map */

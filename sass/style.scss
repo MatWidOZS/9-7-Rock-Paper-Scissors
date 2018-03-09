@@ -34,6 +34,7 @@ body {
 	background-size: 300%;
 	color: $buttonNewGame;
 	transition: 0.4s;
+	animation: pulse 1s infinite;
 	&:hover {
 		background-position: 0 100%;
 		color: white;
@@ -42,4 +43,18 @@ body {
 
 .points {
 	font-size: 18px;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
 }
